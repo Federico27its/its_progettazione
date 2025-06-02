@@ -9,15 +9,8 @@ class Volo():
         self._codice = codice
         self.set_durata_min(durata)
 
-        self._compagnia = None
-        self._partenza = None
-        self._arrivo = None
-
     def codice(self) -> str:
         return self._codice
-    
-    def set_codice(self, codice: str) -> None:
-        self._codice = codice
 
     def durata_min(self) -> IntGZ:
         return self._durata_min
