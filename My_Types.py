@@ -22,7 +22,13 @@ class IntG1900(int):
         if n > 1900:
             return int.__new__(cls, n)
         raise ValueError(f"Value n: {n} must be greater than 1900")
-   
+    
+class IntG1088(int):
+    def __new__(cls, n: int | float | str):
+        if n > 1088:
+            return int.__new__(cls, n)
+        raise ValueError(f"Value n: {n} must be greater than 1088")
+
 
 
 class FloatGZ(float):
