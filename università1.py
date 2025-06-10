@@ -104,7 +104,7 @@ class Corso():
     def __init__(self, codice: str, nome: str, ore: IntGEZ) -> None:
         self._codice = codice
         self.set_nome(nome)
-        self.set_ore(ore)
+        self.set_numero_ore(ore)
 
     def nome(self) -> str:
         return self._nome
@@ -117,6 +117,9 @@ class Corso():
     
     def set_numero_ore(self, ore: IntGEZ) -> None:
         self._numero_ore = ore
+
+    def codice(self) -> str:
+        return self._codice
 
 
 
@@ -152,31 +155,3 @@ class Studente_Facolta():
 
     def anno_iscrizione(self) -> IntG1088:
         return self._anno_iscrizione
-    
-
-
-n1 = Nazione("Italia")
-n2 = Nazione("Francia")
-print(n1.nome(), n2.nome())
-
-c1 = Citta("Roma")
-c2 = Citta("Roma2")
-print(c1.nome(), c2.nome())
-
-
-f1 = Facolta("ingegneria")
-f2 = Facolta("informatica")
-f3 = Facolta("boh")
-print(f1.nome(), f2.nome())
-
-
-
-
-
-
-
-s1 = Studente("federico", CodiceFiscale("DNTCRL65S67M126L"), "1234", date(1995, 7, 27), c1)
-print(s1.nome(), s1.codice_fiscale(), s1.data_nascita(), s1.matricola(), s1.citta().nome())
-
-p1 = Professore("eworfij", CodiceFiscale("DNTCRL65S67M126L"), date(3298, 1, 1), c2)
-print(p1.nome(), p1.codice_fiscale(), p1.data_nascita(), p1.citta().nome())
