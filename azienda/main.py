@@ -29,12 +29,12 @@ p1: Progetto = Progetto("ccc", RealGEZ(1))
 p2: Progetto = Progetto("rfoihewriu", RealGEZ(348))
 
 
-dip1: Dipartimento = Dipartimento("Vendite", tel1, ind)
+dip1: Dipartimento = Dipartimento("Vendite", tel1, ind, alice)
 
 print(f"Ho creato il dipartimento {dip1}")
 
 
-dip2: Dipartimento = Dipartimento("Acquisti", tel2, None)
+dip2: Dipartimento = Dipartimento("Acquisti", tel2, None, bob)
 print(f"Ho creato il dipartimento {dip2}")
 
 t: frozenset[Telefono] = dip1.telefoni()
@@ -54,3 +54,22 @@ print("progetti alice: ", alice._progetti)
 p1.remove_impiegati(alice)
 
 print("progetti alice: ", alice._progetti)
+
+print(dip1._direttore[1].impiegato(),dip1._direttore[1].dipartimento())
+
+dip1.add_impiegato(bob, date.today())
+print(dip1.impiegati())
+print(bob.dipartimento())
+dip1.remove_impiegati(bob)
+print(dip1.impiegati())
+print(bob.dipartimento())
+
+print("\n\n\n")
+print(dip1.direttore())
+print(alice.dirige())
+print(bob.dirige())
+
+dip1.set_direttore(bob)
+print(dip1.direttore())
+print(alice.dirige())
+print(bob.dirige())

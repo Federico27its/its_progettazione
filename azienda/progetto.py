@@ -4,7 +4,7 @@ from custom_types import RealGEZ
 class Progetto:
     _nome: str # noto alla nacita
     _budget: RealGEZ # noto alla nascita
-    _impiegati: dict['Impiegato', 'Coinvolto']
+    _impiegati: dict['Impiegato': 'Coinvolto']
 
     def __init__(self, nome: str, budget: RealGEZ) -> None:
 
@@ -36,13 +36,14 @@ class Progetto:
             raise ValueError("L'impiegato già è coinvolto nel progetto")
         
     def remove_impiegati(self, impiegato:'Impiegato') -> None:
-        from impiegato import Impiegato
-        from coinvolto import Coinvolto
         if impiegato in self._impiegati:
             self._impiegati.pop(impiegato)
             impiegato._progetti.pop(self)
         else:
             raise ValueError("L'impiegato non è coinvolto nel progetto")
+        
+    def impiegati(self) -> dict['Impiegato', 'Coinvolto']:
+        return self._impiegati
         
     
 
